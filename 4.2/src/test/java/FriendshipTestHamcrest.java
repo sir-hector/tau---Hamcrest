@@ -47,5 +47,9 @@ public class FriendshipTestHamcrest{
         assertThat(friendships.getFriendsList("Karol").get(0),is("Zbyszek"));
     }
 
+    @Test
+    void testFriendshipNotContains() {
+        assertThat(friendships.getFriendsList("Karol"), not(hasItem("Kuba")));
+    }
 
 }

@@ -45,5 +45,8 @@ public class FriendshipTest {
         assertThat(friendships.getFriendsList("Karol").get(0)).isEqualTo("Zbyszek");
     }
 
-
+    @Test
+    void testFriendshipNotContains() {
+            assertThat(friendships.getFriendsList("Karol")).doesNotContain("Kuba");
+    }
 }
