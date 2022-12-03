@@ -47,6 +47,26 @@ public final class Fraction implements Serializable {
                 .append(denominator)
                 .toString();
     }
+    public double multiplyFractions(Fraction fraction){
+        double multiplied = this.doubleValue() * fraction.doubleValue();
+
+        return multiplied;
+    }
+
+    public double multiplyFractions(final int nominator, final int denominator){
+        return multiplyFractions(Fraction.of(nominator, denominator));
+    }
+
+    public double divideFractions(Fraction fraction){
+        double divided = this.doubleValue() / fraction.doubleValue();
+
+        return divided;
+    }
+
+    public double divideFractions(final int nominator, final int denominator){
+        return divideFractions(Fraction.of(nominator, denominator));
+    }
+
     private Fraction(final int nominator, final int denominator){
         this.denominator = denominator;
         this.nominator = nominator;
