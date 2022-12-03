@@ -1,4 +1,6 @@
 import unittest
+
+from AreInTheSameQuarter import are_the_same_quarter
 from point import Point
 from hamcrest import *
 
@@ -24,6 +26,9 @@ class pointTest(unittest.TestCase):
 
     def testInstance(self):
         assert_that(self.temp, is_(Point))
+
+    def testAreInTheSameQuarter(self):
+        assert_that(self.temp, are_the_same_quarter(self.temp2))
 
     def testInstance2(self):
         assert_that(self.temp, instance_of(Point))
