@@ -1,6 +1,7 @@
 import unittest
 
 from AreInTheSameQuarter import are_the_same_quarter
+from AreInTheSameAxis import  are_the_same_axis
 from point import Point
 from hamcrest import *
 
@@ -18,8 +19,14 @@ class pointTest(unittest.TestCase):
     def testDistanceLessThan(self):
         assert_that(self.temp.distance(self.temp2), less_than(0.2))
 
+    def testDistanceLessThanOrEqualTo(self):
+        assert_that(self.temp.distance(self.temp2), less_than_or_equal_to(0.2))
+
     def testDistanceGreaterThan(self):
         assert_that(self.temp.distance(self.temp2), greater_than(0.19))
+
+    def testDistanceGreaterThanOrEqualTo(self):
+        assert_that(self.temp.distance(self.temp2), greater_than_or_equal_to(0.19))
 
     def testDistanceCloseToDelta(self):
         assert_that(self.temp.distance(self.temp2), close_to(0.2, 0.01))
@@ -29,6 +36,9 @@ class pointTest(unittest.TestCase):
 
     def testAreInTheSameQuarter(self):
         assert_that(self.temp, are_the_same_quarter(self.temp2))
+
+    def testAreInTheSameAxis(self):
+        assert_that(self.temp, are_the_same_axis(self.temp2))
 
     def testInstance2(self):
         assert_that(self.temp, instance_of(Point))

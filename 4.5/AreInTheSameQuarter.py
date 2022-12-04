@@ -8,7 +8,11 @@ class AreInTheSameQuarter(BaseMatcher):
         self.point = point
 
     def _matches(self, item):
-        if( (item.X > 0 and self.point.X >0 ) ):
+        if (((item.X > 0 and self.point.X >0) and (item.Y > 0 and self.point.Y >0)) or
+                ((item.X < 0 and self.point.X < 0) and (item.Y < 0 and self.point.Y < 0)) or
+                ((item.X < 0 and self.point.X < 0) and (item.Y > 0 and self.point.Y > 0)) or
+                ((item.X > 0 and self.point.X > 0) and (item.Y < 0 and self.point.Y < 0))
+        ):
             return True
 
     def describe_to(self, description):
